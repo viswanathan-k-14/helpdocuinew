@@ -1,182 +1,384 @@
 header
-
 <header>
+
+    {{#page "search"}}<span></span> {{else}} <div id="hamburger">
+
+	<svg width="100" height="100" viewBox="0 0 100 100">
+
+		<path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+
+		<path class="line line2" d="M 20,50 H 80" />
+
+		<path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+
+	</svg>
+
+</div>{{/page}}
+
    <nav id="navbar" class="mx-auto navbar row">
+
       <div
+
          class="logo col-md-2 d-flex justify-content-center align-items-center"
+
          >
+
          <a href="/">
+
             <svg
+
                class="brand-logo"
+
                width="138"
+
                height="40"
+
                viewBox="0 0 138 40"
+
                fill="none"
+
                xmlns="http://www.w3.org/2000/svg"
+
                xmlns:xlink="http://www.w3.org/1999/xlink"
+
                >
+
                <rect width="137.96" height="39.8728" fill="url(#pattern0)" />
+
                <defs>
+
                   <pattern
+
                      id="pattern0"
+
                      patternContentUnits="objectBoundingBox"
+
                      width="1"
+
                      height="1"
+
                      >
+
                      <use
+
                         xlink:href="#image0_235_6703"
+
                         transform="translate(-0.0020431) scale(0.00249153 0.00862069)"
+
                         />
+
                   </pattern>
+
                   <image
+
                      id="image0_235_6703"
+
                      width="403"
+
                      height="116"
+
                      xlink:href="data:image/png;base64,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"
+
                      />
+
                </defs>
+
             </svg>
+
          </a>
+
       </div>
+
       <div
-         class="search-wrapper col-md-8 d-flex justify-content-center align-items-center"
+
+         class="search-wrapper col-md-6 d-flex justify-content-center align-items-center"
+
          >
-         <div class="search d-flex align-items-center">
+
+         <div id="instant-search" class="search d-flex align-items-center">
+
             <svg
+
                width="28"
+
                height="28"
+
                viewBox="0 0 20 20"
+
                fill="none"
+
                xmlns="http://www.w3.org/2000/svg"
+
                class="ps-2"
+
                >
+
                <path
+
                   d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+
                   stroke="#62656B"
+
                   stroke-linecap="round"
+
                   stroke-linejoin="round"
+
                   />
+
                <path
+
                   d="M17.5 17.5L13.875 13.875"
+
                   stroke="#62656B"
+
                   stroke-linecap="round"
+
                   stroke-linejoin="round"
+
                   />
+
             </svg>
+
             <form action="{{rootPath meta.home_path}}/search" method="GET">
+
                <input
+
+                      id="hd-query"
+
                   type="text"
+
                   name="query"
+
                   class="form-control"
+
                   placeholder="Search help articles..."
+
                   />
+
             </form>
+
          </div>
+
       </div>
-      <a
-         href="/"
-         class="nav-link d-flex justify-content-center align-items-center col-md-2"
-         >
-         <svg
-            class="link me-2"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            >
-            <path
-               d="M13.625 8.7125V13.6625C13.625 14.1001 13.4512 14.5198 13.1417 14.8292C12.8323 15.1387 12.4126 15.3125 11.975 15.3125H2.9C2.46239 15.3125 2.04271 15.1387 1.73327 14.8292C1.42384 14.5198 1.25 14.1001 1.25 13.6625V4.5875C1.25 4.14989 1.42384 3.73021 1.73327 3.42077C2.04271 3.11134 2.46239 2.9375 2.9 2.9375H7.85"
-               stroke="#0565FF"
-               stroke-width="1.2"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               />
-            <path
-               d="M10.8125 1.25H15.3125V5.75"
-               stroke="#0565FF"
-               stroke-width="1.2"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               />
-            <path
-               d="M9.125 7.4375L15.3129 1.25"
-               stroke="#0565FF"
-               stroke-width="1.2"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               />
-         </svg>
-         <p>Kissflow Lowcode</p>
-      </a>
-   </nav>
-</header>
-{{#*inline "sidebar_category"}}
-<a
-class="sidebar-category{{#page "category"}}{{#if (eq category.category_id c.category_id)}} current{{/if}}{{/page}}"
-href="#category-{{c.category_id}}-items"
-data-toggle="collapse"
-aria-expanded="false"
-aria-controls="category-{{c.category_id}}-items"
->
-<p
-id="category-{{c.category_id}}-title"
-style="margin-left: {{multiply 0.5 level}}em !important; font-size: {{subtract 1 (multiply 0.05 level)}}em !important;"
-{{#categoryIsAscendent @root.meta.sidebar_categories category c}}
-class="expanded"
-{{/categoryIsAscendent}}
-onclick="toggleCategoryIcon(event, '{{c.category_id}}')"
->
-{{c.title}} 
-</p>
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-   <path d="M8 14.5001L12 10.5L8 6.5" stroke="#474C57" stroke-width="1.33336" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <svg class="mobile-icon" onclick="triggerChange();" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+
+<path d="M7.99995 14.5001L12 10.5L7.99995 6.5" stroke="#474C57" stroke-width="1.33336" stroke-linecap="round" stroke-linejoin="round"/>
+
 </svg>
+
+       <div id="mobile-link" >
+
+          
+
+           <div class="mobile-container">
+
+               {{#if config.nav_items}}
+
+            {{#each config.nav_items}}
+
+              <li>
+
+                <a class="mobile-link" href="{{this.href}}" target="{{fallback this.target "_blank"}}">
+
+                  {{this.title}}
+
+                </a>
+
+              </li>
+
+            {{/each}}
+
+          {{/if}}
+
+           </div>
+
+       </div>
+
+      <div
+
+         href="/"
+
+         class="nav-link-container d-flex justify-content-center align-items-center col-md-4"
+
+         >
+
+         {{#if config.nav_items}}
+
+            {{#each config.nav_items}}
+
+              <li>
+
+                <a class="nav-link" href="{{this.href}}" target="{{fallback this.target "_blank"}}">
+
+                  {{this.title}}
+
+                </a>
+
+              </li>
+
+            {{/each}}
+
+          {{/if}}
+
+      </div>
+
+   </nav>
+
+     <div id="searchresults" class="container">
+
+    <div id="articles" class="row">
+
+      <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+
+        <div id="hits"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+{{#*inline "sidebar_category"}}
+
+<a
+
+class="sidebar-category{{#page "category"}}{{#if (eq category.category_id c.category_id)}} current{{/if}}{{/page}}"
+
+href="#category-{{c.category_id}}-items"
+
+data-toggle="collapse"
+
+aria-expanded="false"
+
+aria-controls="category-{{c.category_id}}-items"
+
+>
+
+<p
+
+id="category-{{c.category_id}}-title"
+
+style="margin-left: {{multiply 0.5 level}}em !important; font-size: {{subtract 1 (multiply 0.05 level)}}em !important;"
+
+{{#categoryIsAscendent @root.meta.sidebar_categories category c}}
+
+class="expanded"
+
+{{/categoryIsAscendent}}
+
+onclick="toggleCategoryIcon(event, '{{c.category_id}}')"
+
+>
+
+{{c.title}} 
+
+</p>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+
+   <path d="M8 14.5001L12 10.5L8 6.5" stroke="#474C57" stroke-width="1.33336" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>
+
 </a>
+
 <div
+
    id="category-{{c.category_id}}-items"
+
    class="collapse{{#categoryIsAscendent @root.meta.sidebar_categories category c}} in {{/categoryIsAscendent}}"
+
    data-toggle="collapse"
+
    >
+
    {{#each (filterCategoriesByParentId @root.meta.sidebar_categories c.category_id)}}
+
    {{> sidebar_category c=this level=(add level 1)}}
+
    {{/each}}
+
+   
+
+   {{#page "category"}} <div id="sidebar-article"> {{/page}}
+
    {{#each c.articles}}
+
    <a
+
    class="sidebar-article{{#page "article"}}{{#if (eq article.article_id this.article_id)}} current{{/if}}{{/page}}"
+
    href="{{this.relative_url}}"
+
    onclick="window.location.href='{{this.relative_url}}'"
+
    >
+
    <p style="margin-left: {{multiply 0.5 (add level 1)}}em !important; font-size: {{subtract 1 (multiply 0.05 (add level 1))}} !important;">
+
       {{this.title}}
+
    </p>
+
    </a>
+
    {{/each}}
+
+   {{#page "category"}} </div>{{/page}}
+
 </div>
+
 {{/inline}}
+
 {{#*inline "sidebar"}}
+
 <section id="sidebar" class="col-md-3 col-lg-3 d-flex flex-column justify-content-start align-items-start"
+
    style="cursor: pointer">
+
    <p class="mt-5">Browse articles</p>
+
    {{#each meta.sidebar_categories}}
+
    {{#unless this.parent_category_id}}
+
    {{> sidebar_category c=this level=0}}
+
    {{/unless}}
+
    {{/each}}
+
 </section>
+
 <script>
+
    function toggleCategoryIcon (event, category_id) {
+
      var $p = $('#category-' + category_id + '-title');
+
      if ($p.hasClass('expanded')) {
+
        $p.removeClass('expanded');
+
      } else {
+
        $p.addClass('expanded');
+
      }
+
    }
+
      
+
    
+
    
+
 </script>
+
 {{/inline}}
 
 footer
