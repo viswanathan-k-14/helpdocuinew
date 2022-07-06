@@ -1,0 +1,36 @@
+<style>
+   @media (max-width:600px)
+   {
+   .category-wrapper
+   {
+   flex:0 0 100%;
+   }
+   .category-inner.d-flex.flex-wrap.justify-content-start
+   {
+   padding-left:20px;
+   }
+   }
+</style>
+<main class="row">
+   {{> "sidebar"}}
+   <section id="categories" class="row col-md-9 col-lg-6">
+      <div class="p-4" id="home">
+         <div class="category-inner d-flex flex-wrap justify-content-start">
+            {{#each categories}}
+            {{#unless this.parent_category_id}}
+            <a class="category-wrapper" href="{{this.relative_url}}">
+               <div class="d-flex flex-column justify-content-center align-items-center">
+                  <span></span>
+                  <img src={{this.icon}} alt="category" />
+                  <h3 style="margin-top:0.6em" class="category-title">{{this.title}}</h3>
+                  <p class="category-content">
+                     This text will act as a description for this category which is customizable
+                  </p>
+               </div>
+            </a>
+            {{/unless}}
+            {{/each}}
+         </div>
+      </div>
+   </section>
+</main>
