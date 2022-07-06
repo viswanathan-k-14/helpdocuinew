@@ -1,0 +1,77 @@
+<style>
+    .dark div#search-result-wrapper {
+    background: #222;
+}
+    
+  
+    .dark div#article.card.hvr-card
+    {
+        background:#222;
+        color:#fff;
+        padding-left:1rem;
+    }
+    .dark div#searchresultspg span , .dark div#searchresultspg h3 , .dark div#searchresultspg p 
+    {
+        color:#fff;
+    }
+</style>
+
+<div class="container-fluid">
+   <div id="search-result-wrapper" class="row mx-auto">
+      <div class="col-xs-12 mx-auto col-md-9 col-xl-10">
+         <div id="searchresultspg" data-search-term="{{fallback search_term "undefined"}}">
+         <div class="row">
+            <div  class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+               {{#if articles}}
+               <h1 class="search-result-heading">Search results for <span>"{{fallback search_term "undefined"}}"</span></h1>
+               {{/if}}
+               {{#each articles}}
+               <div class="row">
+                  <div class="col-xs">
+                     <a class="card-link" data-article-id="{{this.article_id}}" href="{{this.relative_url}}">
+                        <div id="article" class="card hvr-card">
+                           <div class="card-block">
+                              <h3 class="card-title">
+                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                                    <path d="M7.95463 0.65332H2.56124C2.20363 0.65332 1.86068 0.795378 1.60781 1.04824C1.35495 1.30111 1.21289 1.64406 1.21289 2.00167V12.7884C1.21289 13.1461 1.35495 13.489 1.60781 13.7419C1.86068 13.9947 2.20363 14.1368 2.56124 14.1368H10.6513C11.0089 14.1368 11.3519 13.9947 11.6047 13.7419C11.8576 13.489 11.9997 13.1461 11.9997 12.7884V4.69836L7.95463 0.65332Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7.95483 0.65332V4.69836H11.9999" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9.3033 8.06836H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9.3033 10.7656H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5.25826 5.37305H4.58409H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                                 </svg>
+                                 {{this.title}}
+                              </h3>
+                              <p class="card-description">{{this.description}}</p>
+                              {{#if this.updated_at_relative}}
+                              {{#if this.search.score}}
+                              <p class="card-meta text-muted">
+                                 {{i18n "updated" "Updated"}} {{this.updated_at_relative}}
+                                 <span class="pull-right">
+                                 {{this.search.score}}%
+                                 {{i18n "relevance" "relevance"}}
+                                 </span>
+                              </p>
+                              {{/if}}
+                              {{/if}}
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               {{/each}}
+               {{#unless articles}}
+               <div class="text-xs-center">
+                  <p class="lead">&nbsp;</p>
+                  <i class="fa fa-3x fa-times-circle text-muted"></i>
+                  <p class="lead">
+                     {{i18n "no_articles_found" "We couldn't find any articles matching"}}
+                     <b>{{original_search_term}}</b>
+                  </p>
+               </div>
+               {{/unless}}
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
