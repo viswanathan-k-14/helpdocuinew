@@ -371,3 +371,570 @@ if (icon_03.dataset.faclass !== "") {
      }
     
 </script>
+
+<style>
+    
+   *
+    {
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+    }
+    
+   .dark footer , .dark .footer-container
+    {
+       background:#242424;
+    }
+
+    
+  footer , .footer-container
+    {
+        background:#f7f9fc;
+    }
+        
+    
+    .footer-container
+    {
+        display:flex;
+        width:60%;
+         padding-bottom:4rem;
+        margin:0 auto;
+    }
+    
+     .footer-container > div
+    {
+        flex:1;
+    }
+
+    .horizontal
+    {
+        display:none;
+            border-bottom: 1px solid #E1E6ed;
+    width: 90%;
+    margin-left: 1.1rem;
+    }
+
+
+    .dark .footer-container a
+    {
+        color:#fff!important;
+        transition:color 0.3s;
+    }
+    .footer-container h3
+    {
+        color:#000000;
+        font-size:20px;
+    }
+    
+    .footer-container a
+    {
+        color:#555;
+        font-size:14px;
+        transition:color 0.3s;
+    }
+    
+    .footer-container > div
+    {
+        cursor:pointer;
+    }
+    
+    .footer-container
+    {
+        position:relative;
+    }
+    
+  
+    
+    .dark h3 
+    {
+        color:#fff!important;
+        font-size:20px;
+    }
+a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+    .dark ul li a:hover
+    {
+        color: #0565FF!important;
+    }
+    
+   
+ul li a:hover
+    {
+        color: #0565FF!important;
+    }
+    
+.f_social_icon a {
+    width: 44px;
+    height: 44px;
+    line-height: 43px;
+    background: transparent;
+    border: 1px solid #e2e2eb;
+    font-size: 24px;
+  
+}
+.f_social_icon a {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 14px;
+    line-height: 45px;
+    color: #858da8;
+    display: inline-block;
+    background: #ebeef5;
+    text-align: center;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+   #connect .f_social_icon a
+    {
+        color:#858da8;
+        background:transparent;
+        border:none;
+          transition: background 0.3s;
+        box-shadow:1px 2px 4px 0px rgb(0 0 0 / 33%);
+    }
+     #connect .f_social_icon a:hover
+    {
+        color:#fff;
+        background:#0565FF;
+    }
+.dark #connect .f_social_icon a
+    {
+        color:#fff!important;
+        background:transparent;
+        border:1px solid gray;
+        border:none;
+          transition: background 0.3s;
+         box-shadow:2px 2px 8px 0px rgb(0 0 0 / 33%);
+    }
+    #connect > p
+    {
+        color:#555;
+        text-align:left;
+        font-size:14px;
+        white-space:nowrap;
+    }
+    .dark #connect > p
+    {
+        color:#fff;
+        text-align:left;
+        font-size:14px;
+    }
+    .dark #connect .f_social_icon a:hover
+    {
+       background:#0565FF;
+    }
+    
+    @media (max-width:950px)
+        {
+   .footer-container
+            {
+                flex-direction:column;
+            }
+#connect div {
+    display:flex;
+    gap:5px;
+            }
+    }
+
+   
+
+
+/*************footer End*****************/
+
+
+</style>
+
+<footer>
+    <div class="footer-container pt-5">
+        <div id="top-articles">
+              <h3 class="mb-3">Top articles</h3>
+                                <ul class="list-unstyled">
+                                    
+                                    <li><a href="https://docs.kissflow.com/article/uj1enkthc7-new-user-guide" target="_blank">New user guide</a></li>
+                                    <li><a href="https://docs.kissflow.com/article/5jrrzog3do-signing-into-kissflow" target="_blank">Signing into Kissflow</a></li>
+                                    <li><a href="https://docs.kissflow.com/article/2uegfi14vl-user-profile" target="_blank">User profiles and settings</a></li>
+                                                                        <li><a href="https://docs.kissflow.com/article/ahlquze7te-process-workflow" target="_blank">Making a process workflow</a></li>
+                                    <li><a href="https://docs.kissflow.com/article/pz649ao5o5-logical-expressions" target="_blank">Logical expressions</a></li>
+                                    
+                                </ul>
+        </div>
+          <div id="quick-links">
+              <h3 class="mb-3">Quick links</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="https://docs.kissflow.com/category/umg6zt2tr3-faqs" target="_blank">FAQs</a></li>
+                                    <li><a href="https://academy.kissflow.com/" target="_blank">Academy</a></li>
+                                    <li><a href="https://developers.kissflow.com/docs" target="_blank">Documentation</a></li>
+                                    <li><a href="https://docs.kissflow.com/article/7rz85itx1u-what-s-new-in-kissflow" target="_blank">What's new</a></li>
+                                    <li><a href="https://championsforum.kissflow.com/view/join" target="_blank">Community</a></li>
+                                </ul>
+        </div>
+          <div id="connect">
+               <h3 class="mb-3">Connect with us</h3>
+                                <div class="f_social_icon">
+                                    <a href="https://www.facebook.com/KissflowInc/" target="_blank" class="fab fa-facebook"></a>
+                                    <a href="https://twitter.com/kissflow" class="fab fa-twitter" target="_blank" ></a>
+                                    <a href="https://linkedin.com/company/kissflow" class="fab fa-linkedin" target="_blank" ></a>
+                                    <a href="https://www.youtube.com/channel/UCdOEIXgLZan9Gvj-2ExPq3A" class="fab fa-youtube" target="_blank" ></a>
+                                    <a href="https://www.instagram.com/kissflowinc" class="fab fa-instagram" target="_blank" ></a>
+                                </div>
+              <p class="mt-3">© Kissflow Inc. <span id="year">2022</span> All rights reserved.</p>
+        </div>
+        
+
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/gh/fcmam5/nightly.js@v1.0/dist/nightly.min.js"></script>
+<script>
+    
+    //set colors
+    
+      let toggleBtn = document.querySelector('.toggle');
+    let toggleIcon = document.querySelector('.toggle i');
+    document.addEventListener('DOMContentLoaded',setTheme);
+    
+    function setTheme()
+    {
+        let deft = document.querySelector('div[style$="m: 2em !important; display: block !important;"]');
+        deft.style.display = 'none';
+        if(localStorage.getItem('theme'))
+        {
+            if(localStorage.getItem('theme')==='light')
+            {
+                document.querySelector('body').classList.remove('dark');
+                
+                 toggleIcon.classList.remove('fa-sun');
+            toggleIcon.classList.add('fa-moon');
+                
+            }
+            else if(localStorage.getItem('theme')==='dark')
+            {
+                document.querySelector('body').classList.add('dark');
+                
+                 toggleIcon.classList.remove('fa-moon');
+            toggleIcon.classList.add('fa-sun');
+            
+            }
+            else
+            {
+                document.querySelector('body').classList.remove('dark');
+                
+                 toggleIcon.classList.remove('fa-sun');
+            toggleIcon.classList.add('fa-moon');
+            }
+        }
+        else
+        {
+            localStorage.setItem('theme','light');
+        }
+    }
+    
+    
+    
+    //moreless js implementation
+   let paraMore = document.querySelector('#more');
+   let paraMoreSVG = document.querySelector('#more svg');
+   let paraMoreSpan = document.querySelector('#more span');
+   let showState = true;
+   if(paraMore)
+   {
+   paraMore.addEventListener('click',more);
+   }
+   function more(e)
+   {
+       document.querySelectorAll('.article-element').forEach((ele)=>ele.classList.toggle('show'));
+       showState = !showState;
+       paraMoreSVG.style.transform = showState ? 'rotate(90deg)' : 'rotate(-90deg)';
+       paraMoreSpan.textContent = showState ? 'See more' : 'See less';
+       
+   }
+   
+    //show right vertical lines when no.of cat is > 1
+   if(window.location.href.includes('category'))
+   {
+       let categoryCards = document.querySelectorAll('div.subcategory-item');
+       if(categoryCards.length <= 1)
+       {
+           let vertical = document.querySelector('span.vertical');
+           if(vertical)
+           {
+           vertical.style.display = 'none';
+           }
+       }
+   }
+   
+   //size adjeuster
+   
+   window.addEventListener('resize',resizer);
+   
+   
+     let sidebr = document.querySelector('section#sidebar');
+    
+   function resizer()
+   {
+   if(window.location.href.includes('article'))
+   {
+        
+       if(window.innerWidth<=768)
+       {
+           document.querySelector('#sidebar').classList.remove('stickOnScroll');
+           sidebr.classList.remove('compress');
+       }
+       if(window.innerWidth>768)
+       {
+           document.querySelector('#sidebar').classList.add('stickOnScroll');
+       }
+   }}
+   //toc higlighter
+   
+   if(window.location.href.includes('article'))
+   {
+       let toc_main = document.querySelector('#toc-wrapper > ul');
+       let toc_lists = document.querySelectorAll('#toc ul li');
+       toc_lists.forEach(ele=>toc_main.appendChild(ele));
+       toc_lists.forEach(ele=>{
+           ele.addEventListener('click',show)
+       });
+   }
+                      
+   function show(e)
+       {
+           let toc_lists = document.querySelectorAll('#toc-wrapper ul li a');    
+               toc_lists.forEach(ele=>{
+           ele.style.color = '#61656C';
+       });
+   
+           
+           e.target.style.color='#0565FE';
+       }
+    
+    
+    //table design
+    
+    if(window.location.href.includes('article'))
+    {
+        let articleTable = document.querySelector('#article table');
+        if(articleTable)
+        {
+            articleTable.classList.add('table');
+            articleTable.classList.add('table-responsive');
+        }
+    }
+   
+   //hamburger toggler
+   let ham = document.getElementById('hamburger');
+   let side = document.querySelector('#sidebar');
+    if(ham)
+        
+    {
+   ham.addEventListener('click',toggle);
+   
+                        function toggle(e)
+                        {
+                           e.currentTarget.classList.toggle('open');
+                            side.classList.toggle('open');
+   }
+    }
+    let dn = document.querySelector('#download');
+    if(dn)
+    {
+        
+    dn.addEventListener('click',printFl);
+    }
+   function printFl()
+    {
+        window.print();
+    }
+
+let expd = document.querySelector('#expand');
+    if(expd)
+    {
+    expd.addEventListener('click',articleSideAdjust);
+    }
+    
+    function articleSideAdjust(e)
+    {
+        e.currentTarget.classList.toggle('more');
+        sidebr.classList.toggle('compress');
+        document.querySelector('#article-wrapper').classList.toggle('col-md-9');
+    }
+    
+  
+    
+    if(toggleBtn)
+    {
+        toggleBtn.addEventListener('click',toggleMode);
+    }
+    function toggleMode(e)
+    {
+        if(document.querySelector('body').classList.contains('dark'))
+        {
+            localStorage.setItem('theme','light');
+            document.querySelector('body').classList.remove('dark');
+            toggleIcon.classList.remove('fa-sun');
+            toggleIcon.classList.add('fa-moon');
+            
+        }
+        else
+        {
+            localStorage.setItem('theme','dark');
+            document.querySelector('body').classList.add('dark');
+            toggleIcon.classList.remove('fa-moon');
+            toggleIcon.classList.add('fa-sun');
+        }
+      
+    }
+    
+    let formControl = document.querySelector('.form-control');
+    if(formControl)
+    {
+        formControl.addEventListener('keypress',function(e){
+            if(e.currentTarget.value)
+            {
+                document.querySelector('#searchresults').style.display = 'block';
+            }
+            else
+            {
+                document.querySelector('#searchresults').style.display = 'none';
+            }
+        });
+    }
+    
+    
+    
+    
+     if(window.location.href.includes('article'))
+     {
+    let widget_section = document.createElement('section');
+    widget_section.innerHTML = `<div id="tier-widget" class="" data-bg="#EEF5FF" data-border="">
+  <div id="tier-widget-heading">
+    <p data-size="16px" data-text="" class="" data-color="">Kissflow Digital Work Platform :</p>
+  </div>
+  <ul id="tier-widget-list" class="">
+    <li id="item-1" data-text="" data-color="" class="strike"><i id="icon-1" class="fas fa-check" data-faclass="" data-color=""></i>Small business</li>
+    <li id="item-2" data-text="" class="" ><i id="icon-2" class="fas fa-check" data-faclass="" ></i>Corporate</li>
+    <li id="item-3" data-text="" class=""><i class="fas fa-check" id="icon-3" data-faclass=""></i>Enterprise</li>
+  </ul>
+</div>`
+    let parentNd = document.querySelector('.art');
+    let articlesibling = document.querySelector('.art p:nth-of-type(1)');
+    
+   parentNd.insertBefore(widget_section,articlesibling);
+    
+         
+         
+         
+    let widget = document.querySelector("#tier-widget");
+let widget_heading = document.querySelector("#tier-widget-heading p");
+let widget_list_01 = document.querySelector("#tier-widget-list #item-1");
+let widget_line = document.querySelector("#tier-line");
+let widget_list_02 = document.querySelector("#tier-widget-list #item-2");
+let widget_list_03 = document.querySelector("#tier-widget-list #item-3");
+let icon_01 = document.querySelector("#icon-1");
+let icon_02 = document.querySelector("#icon-2");
+let icon_03 = document.querySelector("#icon-3");
+
+if (widget.dataset.bg !== "") {
+  widget.style.background = widget.dataset.bg;
+}
+
+if (widget.dataset.color !== "") {
+  widget.style.color = widget.dataset.color;
+}
+
+if (widget.dataset.border !== "") {
+  widget.style.border = widget.dataset.border;
+}
+
+if (widget_heading.dataset.color !== "") {
+  widget_heading.style.color = widget_heading.dataset.color;
+}
+
+if (widget_heading.dataset.size !== "") {
+  widget_heading.style.fontSize = widget_heading.dataset.size;
+}
+
+if (widget_heading.dataset.text !== "") {
+  widget_heading.textContent = widget_heading.dataset.text;
+}
+
+if (widget_list_01.dataset.color !== "") {
+  widget_list_01.style.color = widget_list_01.dataset.color;
+}
+
+if (widget_list_01.dataset.size !== "") {
+  widget_list_01.style.fontSize = widget_list_01.dataset.size;
+}
+
+if (widget_list_01.dataset.text !== "") {
+  widget_list_01.innerHTML = icon_01.outerHTML + widget_list_01.dataset.text;
+}
+
+if (widget_list_02.dataset.color !== "") {
+  widget_list_02.style.color = widget_list_02.dataset.color;
+}
+
+if (widget_list_02.dataset.size !== "") {
+  widget_list_02.style.fontSize = widget_list_02.dataset.size;
+}
+
+if (widget_list_02.dataset.text !== "") {
+  widget_list_02.innerHTML = icon_02.outerHTML + widget_list_02.dataset.text;
+}
+
+if (widget_list_03.dataset.color !== "") {
+  widget_list_03.style.color = widget_list_03.dataset.color;
+}
+
+if (widget_list_03.dataset.size !== "") {
+  widget_list_03.style.fontSize = widget_list_03.dataset.size;
+}
+
+if (widget_list_03.dataset.text !== "") {
+  widget_list_03.innerHTML = icon_03.outerHTML + widget_list_03.dataset.text;
+}
+
+if (icon_01.dataset.color !== "") {
+  icon_01.style.color = icon_01.dataset.color;
+}
+if (icon_01.dataset.size !== "") {
+  icon_01.style.fontSize = icon_01.dataset.size;
+}
+if (icon_01.dataset.faclass !== "") {
+  icon_01.className = icon_01.dataset.faclass;
+}
+
+if (icon_02.dataset.color !== "") {
+  icon_02.style.color = icon_02.dataset.color;
+}
+if (icon_02.dataset.size !== "") {
+  icon_02.style.fontSize = icon_02.dataset.size;
+}
+if (icon_02.dataset.faclass !== "") {
+  icon_02.className = icon_02.dataset.faclass;
+}
+
+if (icon_03.dataset.color !== "") {
+  icon_03.style.color = icon_03.dataset.color;
+}
+if (icon_03.dataset.size !== "") {
+  icon_03.style.fontSize = icon_03.dataset.size;
+}
+if (icon_03.dataset.faclass !== "") {
+  icon_03.className = icon_03.dataset.faclass;
+}
+
+     }
+    
+    
+    
+</script>
+
+
