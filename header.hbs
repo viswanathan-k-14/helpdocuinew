@@ -1,0 +1,189 @@
+<header>
+   {{#page "search"}}<span></span> {{else}} 
+   <div id="hamburger">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+         <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+         <path class="line line2" d="M 20,50 H 80" />
+         <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+      </svg>
+   </div>
+   {{/page}}
+   <nav id="navbar" class="mx-auto navbar row">
+      <div
+         class="logo col-md-2 d-flex justify-content-center align-items-center"
+         >
+         <a href="/">
+         <img src="{{config.logo}}" class="img-responsive logo" width="132" height="26" alt="KissflowDocs" />
+         </a>
+      </div>
+      <div
+         class="search-wrapper col-md-6 d-flex justify-content-center align-items-center"
+         >
+         <div id="instant-search" class="search d-flex align-items-center">
+            <svg
+               width="28"
+               height="28"
+               viewBox="0 0 20 20"
+               fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               class="ps-2"
+               >
+               <path
+                  d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z"
+                  stroke="#62656B"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  />
+               <path
+                  d="M17.5 17.5L13.875 13.875"
+                  stroke="#62656B"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  />
+            </svg>
+            <form action="{{rootPath meta.home_path}}/search" method="GET">
+               <input
+                  id="hd-query"
+                  type="text"
+                  name="query"
+                  class="form-control"
+                  placeholder="Search help articles..."
+                  />
+            </form>
+         </div>
+      </div>
+      <svg class="mobile-icon" onclick="triggerChange();" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+         <path d="M7.99995 14.5001L12 10.5L7.99995 6.5" stroke="#474C57" stroke-width="1.33336" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div id="mobile-link" >
+         <div class="mobile-container">
+            {{#if config.nav_items}}
+            {{#each config.nav_items}}
+            <li>
+               <a class="mobile-link" href="{{this.href}}" target="{{fallback this.target "_blank"}}">
+               {{this.title}}
+               </a>
+            </li>
+            {{/each}}
+            {{/if}}
+         </div>
+      </div>
+      <div
+         href="/"
+         class="nav-link-container d-flex justify-content-center align-items-center col-md-4"
+         >
+         {{#if config.nav_items}}
+         {{#each config.nav_items}}
+         <li>
+            <a class="nav-link" href="{{this.href}}" target="{{fallback this.target "_blank"}}">
+            {{this.title}}
+            </a>
+         </li>
+         {{/each}}
+         {{/if}}
+      </div>
+   </nav>
+   <div class="toggle">
+      <div id="toggle-wrapper">
+         <i class="fas fa-moon"></i> 
+      </div>
+   </div>
+</header>
+<div id="searchresults" class="container">
+   <div id="articles" class="row">
+      <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+         <div id="hits"></div>
+      </div>
+   </div>
+</div>
+{{#*inline "sidebar_category"}}
+<a
+class="sidebar-category{{#page "category"}}{{#if (eq category.category_id c.category_id)}} current{{/if}}{{/page}}"
+href="#category-{{c.category_id}}-items"
+data-toggle="collapse"
+aria-expanded="false"
+aria-controls="category-{{c.category_id}}-items"
+>
+<p
+id="category-{{c.category_id}}-title"
+style="margin-left: {{multiply 0.5 level}}em !important; font-size: {{subtract 1 (multiply 0.05 level)}}em !important;"
+{{#categoryIsAscendent @root.meta.sidebar_categories category c}}
+class="expanded"
+{{/categoryIsAscendent}}
+onclick="toggleCategoryIcon(event, '{{c.category_id}}')"
+>
+{{c.title}} 
+</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+   <path d="M8 14.5001L12 10.5L8 6.5" stroke="#474C57" stroke-width="1.33336" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+<div
+   id="category-{{c.category_id}}-items"
+   class="collapse{{#categoryIsAscendent @root.meta.sidebar_categories category c}} in {{/categoryIsAscendent}}"
+   data-toggle="collapse"
+   >
+   {{#each (filterCategoriesByParentId @root.meta.sidebar_categories c.category_id)}}
+   {{> sidebar_category c=this level=(add level 1)}}
+   {{/each}}
+   {{#page "category"}} 
+   <div id="sidebar-article">
+      {{/page}}
+      {{#each c.articles}}
+      <a
+      class="sidebar-article{{#page "article"}}{{#if (eq article.article_id this.article_id)}} current{{/if}}{{/page}}"
+      href="{{this.relative_url}}"
+      onclick="window.location.href='{{this.relative_url}}'"
+      >
+      <p style="margin-left: {{multiply 0.5 (add level 1)}}em !important; font-size: {{subtract 1 (multiply 0.05 (add level 1))}} !important;">
+         {{this.title}}
+      </p>
+      </a>
+      {{/each}}
+      {{#page "category"}} 
+   </div>
+   {{/page}}
+</div>
+{{/inline}}
+{{#*inline "sidebar"}}
+<section id="sidebar" class="col-md-3 col-lg-3 stickOnScroll d-flex flex-column justify-content-start align-items-start"
+   style="cursor: pointer;">
+   {{#page "article"}}
+   <section id="expand">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 10 6" fill="none">
+         <path d="M0.999925 1L4.99996 5.00004L9 1" stroke="#474C57" stroke-width="1.33336" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+   </section>
+   {{/page}}
+   <p class="mt-5">Browse articles </p>
+   {{#each meta.sidebar_categories}}
+   {{#unless this.parent_category_id}}
+   {{> sidebar_category c=this level=0}}
+   {{/unless}}
+   {{/each}}
+</section>
+<script>
+   function toggleCategoryIcon (event, category_id) {
+   
+     var $p = $('#category-' + category_id + '-title');
+   
+     if ($p.hasClass('expanded')) {
+   
+       $p.removeClass('expanded');
+   
+     } else {
+   
+       $p.addClass('expanded');
+   
+     }
+   
+   }
+   
+     
+   
+   
+   
+   
+   
+</script>
+{{/inline}}
