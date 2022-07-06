@@ -1,0 +1,184 @@
+{{#*inline "articleItem"}}
+<div class="col-xs-12 col-md-6">
+   <a class="card-link" href="{{article.relative_url}}">
+      <div id="article" class="card hvr-card">
+         <div class="card-block">
+            <h3 class="card-title">
+               {{#if article.is_featured}}<i class="fa fa-star"></i> &#8203;{{/if}}
+               {{~article.title}}
+            </h3>
+            <p class="card-text">{{article.description}}</p>
+            <p class="card-text">
+               {{#if article.author.profile_image}}
+               <img class="img-fluid img-circle" src="{{article.author.profile_image}}">
+               {{/if}}
+               <span class="text-muted">
+               {{i18n "updated" "Updated"}} {{article.updated_at_relative}}
+               </span>
+               {{#if article.author.name}}
+               <span class="text-muted">
+               {{i18n "by" "by"}}
+               {{article.author.name}}
+               </span>
+               {{/if}}
+            </p>
+         </div>
+      </div>
+   </a>
+</div>
+{{/inline}}
+<!-- category items template -->
+<!-- category main-->
+<main class="row">
+   {{>"sidebar"}}
+   <div id="subcategory-wrapper" class="col-xs-12 col-md-9">
+      <section id="category">
+         <div id="meta" class="row">
+            <div class="col-xs-10 offset-xs-1">
+               <p id="breadcrumbs">
+                  <a href="{{fallback meta.home_path "/"}}">
+                  {{i18n "all_categories" "All Categories"}}
+                  </a>
+                  <span> > </span>
+                  {{> categoryBreadcrumbs}}
+               </p>
+            </div>
+         </div>
+      </section>
+      <section class="category-current-wrapper mb-3">
+         <img src={{category.icon}} alt="{{category.title}}__img" style="margin-bottom:10px" />
+         <h2 class="category-current-heading">{{category.title}}<span>( {{category.meta.num_articles}} )</span></h2>
+         <p class="category-current-content">
+            This text will act as a description for this category which is
+            customizable
+         </p>
+         {{#if  (filterCategoriesByParentId meta.sidebar_categories category.category_id) }}
+         <ul class="subcategory-article p-0">
+            {{#each category.articles}}
+            {{#if (lt @index 5)}}
+            <a href={{this.relative_url}} class="m-1">
+               <li class="d-flex">
+                  <div>
+                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                        <path d="M7.95463 0.65332H2.56124C2.20363 0.65332 1.86068 0.795378 1.60781 1.04824C1.35495 1.30111 1.21289 1.64406 1.21289 2.00167V12.7884C1.21289 13.1461 1.35495 13.489 1.60781 13.7419C1.86068 13.9947 2.20363 14.1368 2.56124 14.1368H10.6513C11.0089 14.1368 11.3519 13.9947 11.6047 13.7419C11.8576 13.489 11.9997 13.1461 11.9997 12.7884V4.69836L7.95463 0.65332Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.95483 0.65332V4.69836H11.9999" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.3033 8.06836H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.3033 10.7656H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.25826 5.37305H4.58409H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                     </svg>
+                  </div>
+                  <p> {{this.title}} 
+                  <p>
+               </li>
+            </a>
+            {{/if}}
+            {{#if (eq @index 5)}}
+            <p id="more">
+               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                  <path d="M1 8.9999L4.99995 4.99995L1 1" stroke="#0565FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 8.9999L11 4.99995L7 1" stroke="#0565FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>
+               <span>See more</span>
+            </p>
+            {{/if}}
+            {{/each}}
+            {{#each category.articles}}
+            {{#if (gt @index 4)}}
+            <a href={{this.relative_url}} class="article-element m-3">
+               <li class="d-flex">
+                  <div>
+                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                        <path d="M7.95463 0.65332H2.56124C2.20363 0.65332 1.86068 0.795378 1.60781 1.04824C1.35495 1.30111 1.21289 1.64406 1.21289 2.00167V12.7884C1.21289 13.1461 1.35495 13.489 1.60781 13.7419C1.86068 13.9947 2.20363 14.1368 2.56124 14.1368H10.6513C11.0089 14.1368 11.3519 13.9947 11.6047 13.7419C11.8576 13.489 11.9997 13.1461 11.9997 12.7884V4.69836L7.95463 0.65332Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7.95483 0.65332V4.69836H11.9999" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.3033 8.06836H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.3033 10.7656H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.25826 5.37305H4.58409H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                     </svg>
+                  </div>
+                  <p>  {{this.title}}</p>
+               </li>
+            </a>
+            {{/if}}
+            {{/each}}
+         </ul>
+         {{/if}}
+      </section>
+      <section id="subcategories" class="d-flex flex-wrap">
+         {{#if  (filterCategoriesByParentId meta.sidebar_categories category.category_id) }}
+         {{#each (filterCategoriesByParentId meta.sidebar_categories category.category_id)}}
+         <div class="subcategory-item d-flex flex-column">
+            <img src={{this.icon}} alt="{{this.title}}__img" style="margin-bottom:10px" width="28" height="28" />
+            <a href="/category/{{this.category_id}}-{{this.slug}}">
+               <h2 class="category-current-heading">
+                  {{this.title}} 
+                  <svg style="width:12px;height:12px;" xmlns="http://www.w3.org/2000/svg" version="1.0" width="512.000000pt" height="512.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+                     <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                        <path d="M601 4864 c-169 -45 -301 -180 -346 -351 -23 -86 -23 -3820 0 -3906 45 -173 178 -307 350 -352 52 -13 285 -15 1955 -15 2067 0 1945 -3 2062 56 71 36 159 123 197 193 63 119 61 75 61 1179 0 747 -3 1015 -12 1044 -6 22 -31 62 -55 88 -89 99 -227 107 -327 19 -87 -77 -80 7 -86 -1056 -5 -931 -5 -942 -26 -969 -11 -15 -33 -37 -48 -48 -27 -21 -28 -21 -1752 -24 -1907 -2 -1766 -7 -1820 64 l-29 37 -3 1725 c-2 1921 -8 1763 66 1820 l35 27 941 5 c1057 6 979 -1 1052 83 61 69 78 144 52 231 -16 55 -99 138 -154 154 -31 9 -286 12 -1050 11 -848 0 -1018 -3 -1063 -15z"/>
+                        <path d="M3520 4867 c-49 -16 -133 -102 -148 -153 -28 -94 -8 -169 63 -239 31 -32 65 -55 91 -63 28 -8 124 -12 290 -12 l249 0 -737 -737 c-405 -406 -743 -751 -751 -768 -56 -114 -6 -260 110 -316 59 -29 152 -31 203 -5 19 10 367 349 773 754 l737 737 0 -249 c0 -166 4 -262 12 -290 16 -55 99 -138 154 -154 96 -28 182 -4 247 68 24 26 49 66 55 88 9 28 12 203 12 631 0 656 2 636 -66 687 l-37 29 -611 2 c-426 1 -622 -2 -646 -10z"/>
+                     </g>
+                  </svg>
+               </h2>
+            </a>
+            <p class="category-current-content">
+               This text will act as a description for this category which is
+               customizable
+            </p>
+            <ul class="subcategory-article p-0">
+               {{#each this.articles}}
+               {{#if (lt @index 5)}}
+               <a href={{this.relative_url}} class="m-1">
+                  <li class="d-flex">
+                     <div>
+                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                           <path d="M7.95463 0.65332H2.56124C2.20363 0.65332 1.86068 0.795378 1.60781 1.04824C1.35495 1.30111 1.21289 1.64406 1.21289 2.00167V12.7884C1.21289 13.1461 1.35495 13.489 1.60781 13.7419C1.86068 13.9947 2.20363 14.1368 2.56124 14.1368H10.6513C11.0089 14.1368 11.3519 13.9947 11.6047 13.7419C11.8576 13.489 11.9997 13.1461 11.9997 12.7884V4.69836L7.95463 0.65332Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M7.95483 0.65332V4.69836H11.9999" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9.3033 8.06836H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9.3033 10.7656H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M5.25826 5.37305H4.58409H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <p>{{this.title}}</p>
+                  </li>
+               </a>
+               {{/if}}
+               {{/each}}
+            </ul>
+            {{#each this.articles}}
+            {{#if (eq @index 5)}}
+            <a class="see more" href="/category/{{this.category_id}}-{{this.slug}}">
+               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
+                  <path d="M1 8.9999L4.99995 4.99995L1 1" stroke="#0565FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7 8.9999L11 4.99995L7 1" stroke="#0565FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>
+               <p>See all {{../this.meta.num_articles}} articles</p>
+            </a>
+            {{/if}}{{/each}}
+            <span></span>
+         </div>
+         {{/each}}
+         {{else}}
+         <div class="subcategory-item d-flex flex-column">
+            <ul class="subcategory-article p-0 solo">
+               {{#each category.articles}}
+               <a href={{this.relative_url}} class="m-1">
+                  <li class="d-flex">
+                     <div>
+                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                           <path d="M7.95463 0.65332H2.56124C2.20363 0.65332 1.86068 0.795378 1.60781 1.04824C1.35495 1.30111 1.21289 1.64406 1.21289 2.00167V12.7884C1.21289 13.1461 1.35495 13.489 1.60781 13.7419C1.86068 13.9947 2.20363 14.1368 2.56124 14.1368H10.6513C11.0089 14.1368 11.3519 13.9947 11.6047 13.7419C11.8576 13.489 11.9997 13.1461 11.9997 12.7884V4.69836L7.95463 0.65332Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M7.95483 0.65332V4.69836H11.9999" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9.3033 8.06836H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9.3033 10.7656H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M5.25826 5.37305H4.58409H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <p>{{this.title}}</p>
+                  </li>
+               </a>
+               {{/each}}
+            </ul>
+         </div>
+         {{/if}}
+         {{#if (filterCategoriesByParentId meta.sidebar_categories category.category_id)}}  <span class="vertical"></span> {{/if}}
+      </section>
+   </div>
+</main>
