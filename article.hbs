@@ -1,0 +1,644 @@
+<style>
+   .dark #article :not(a) 
+    {
+        color:#ffffff;
+    }
+   .line
+   {
+   color:gray;
+   height:22px;
+   -ms-flex-item-align:center;
+       -ms-grid-row-align:center;
+       align-self:center;
+   border-left:1px solid #D2DDEC;
+   }
+   #body
+   {
+   margin-left:1.5rem;
+   }
+   #body img
+   {margin:1rem 0;}
+   section#sidebar
+   {
+   width:16%;
+   margin-left:7px;
+   position:sticky;
+   top:0;
+       
+       
+   padding-left:1rem;
+   }
+   #article-wrapper
+   {
+   min-height:100vh;
+   }
+   main.row.mx-auto
+   {
+   min-height:100vh;
+   }
+   .card .card-block h1
+   {
+   font-family: Inter;
+   font-size: 20px;
+   font-weight: 600;
+   line-height: 30px;
+   letter-spacing: -0.5px;
+   text-align: left;
+   color: #080E19;
+   }
+   .card .card-block p
+   {
+   font-family: Inter;
+   font-size: 15px;
+   font-weight: 500;
+   line-height: 24px;
+   letter-spacing: -0.10000000149011612px;
+   text-align: justify;
+   color: #474C57;
+   }
+   .card .card-block h1 , .card .card-block h2 , .card .card-block h3 , .card .card-block p , .card .card-block h4 , .card .card-block h5
+   {
+   font-family:Inter;
+   margin:1rem 0;
+   }
+   #toc
+   {
+   display:none;
+   }
+   .meta-postedBy
+   {
+   width:290px;
+   padding:1rem;
+   padding-left:0;
+   -webkit-box-pack:justify;
+       -ms-flex-pack:justify;
+           justify-content:space-between;
+   -webkit-box-align:center;
+       -ms-flex-align:center;
+           align-items:center;
+   }
+   .meta-postedBy p
+   {
+   color: #61656C;
+   }
+   #meta-article-items
+   {
+   position:fixed;
+   top:72px;
+   right:0;
+   bottom:0;
+   background: #F7F9FC;
+   width:16%;
+       height:1000px;
+   overflow-y:scroll;
+       -webkit-transition:all 0.3s;
+       -o-transition:all 0.3s;
+       transition:all 0.3s;
+   }
+    .dark #meta-article-items button , .dark #meta-article-items h2 , .dark #meta-article-items h3 , .dark #meta-article-items p
+    {
+        color:#fff;
+    }
+    
+    .dark #meta-article-items
+    {
+        background:#242424;
+    }
+        
+   @media (max-width:1000px)
+   {
+   #meta-article-items
+   {
+   width:60%;
+   margin:0 auto;
+   position:static;
+   min-height:auto;
+   height:fit-content;
+   }
+   }
+   @media (max-width:768px)
+   {
+   #meta-article-items
+   {
+   width:100%;
+       height:fit-content;
+   }
+   }
+    
+   #feedback h3
+   {
+   font-family: Inter;
+   font-size: 13px;
+   font-weight: 500;
+   line-height: 20px;
+   letter-spacing: -0.10000000149011612px;
+   text-align: left;
+   color: #61656C;
+   }
+    
+    .note-callout img
+    {
+        display:inline;
+    }
+    section#sidebar
+    {
+        -webkit-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        transition: all 0.5s;
+        overflow:visible;
+       
+    }
+    section#sidebar.compress
+    {
+         -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.2);
+                 box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.2);
+        width:50px;
+    }
+     section#sidebar.compress > :not(#expand)
+    {
+        visibility:hidden;
+    }
+    #expand
+    {
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex;
+      -webkit-box-pack:center;
+          -ms-flex-pack:center;
+              justify-content:center;
+        -webkit-box-align:center;
+            -ms-flex-align:center;
+                align-items:center;
+       position:absolute;
+        right:2%;
+        z-index:100;
+        top:40px;
+        border-radius: 50%;
+background: -o-linear-gradient(305deg, #e2e2e3, #ffffff);
+background: linear-gradient(145deg, #e2e2e3, #ffffff);
+-webkit-box-shadow:  20px 20px 60px #d5d5d6,
+             -20px -20px 60px #ffffff;
+        box-shadow:  20px 20px 60px #d5d5d6,
+             -20px -20px 60px #ffffff;
+        cursor:pointer;
+        width:32px;
+        pointer-events:auto;
+        height:32px;
+        -webkit-box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.33);
+                box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.33);
+    }
+    #expand svg
+    {
+        -webkit-transform:rotate(90deg);
+            -ms-transform:rotate(90deg);
+                transform:rotate(90deg);
+        width:12px;
+        height:12px;
+        -webkit-transition:all 0.3s;
+        -o-transition:all 0.3s;
+        transition:all 0.3s;
+    }
+    #expand.more
+    {
+        right:50%;
+        -webkit-transform:translate(50%,0);
+            -ms-transform:translate(50%,0);
+                transform:translate(50%,0);
+        margin-left:0;
+    }
+    
+    #expand.more svg
+    {
+        -webkit-transform:rotate(270deg);
+            -ms-transform:rotate(270deg);
+                transform:rotate(270deg);
+    }
+    
+   #feedback button
+   {
+   padding-left:0;
+   text-decoration:none;
+   font-family: Inter;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 22px;
+   letter-spacing: -0.10000000149011612px;
+   text-align: left;
+   color: #282D38;
+   }
+   div.thanks i
+   {
+   margin:0 0.6rem 0 0;
+   }
+   div.thanks
+   {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   -webkit-box-pack:start;
+       -ms-flex-pack:start;
+           justify-content:flex-start;
+   -webkit-box-align:center;
+       -ms-flex-align:center;
+           align-items:center;
+   padding:1rem;
+   }
+    section#sidebar
+    {
+        position:relative;
+    }
+   .horizontal
+   {
+   border-bottom:1px solid #E1E6ed;
+   width:90%;
+   margin-left:1.1rem;
+   }
+   #toc-wrapper , #related-article
+   {
+   margin-top:1.5rem;
+   margin-left:1.1rem;
+   }
+   #toc-wrapper h2 ,#related-article h2
+   {
+   font-family: Inter;
+   font-size: 14px;
+   font-weight: 600;
+   line-height: 22px;
+   letter-spacing: -0.10000000149011612px;
+   text-align: left;
+   color: #282D38;
+   }
+   #toc-wrapper ul li a , #related-article ul li a
+   {
+   font-family: Inter;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 22px;
+   letter-spacing: -0.10000000149011612px;
+   text-align: left;
+   color: #61656C;
+   }
+    .dark #toc-wrapper ul li a
+    {
+        color:#fff;
+    }
+   #toc-wrapper ul ,#related-article ul
+   {
+   padding-left:8px;
+   }
+   #toc-wrapper ul li ,#related-article ul li
+   {
+   margin-bottom:0.4rem;
+   }
+    
+    
+   @media (max-width:1060px)
+       {
+            #expand
+    {
+        display:none;
+    }
+    }
+    
+   @media (max-width:768px)
+   {
+   section#sidebar {
+   position:absolute;
+   top:105px;
+   left:-100%;
+   -webkit-transition:0.3s;
+   -o-transition:0.3s;
+   transition:0.3s;
+   width:100%;
+   }
+      
+   }
+    
+   section#sidebar.open
+   {
+   z-index:40;
+   left:0%;
+   }
+   
+    .dark div.thanks
+    {
+        color:#fff;
+    }
+    
+   
+   .author-meta
+   {
+   display:-webkit-box;
+   display:-ms-flexbox;
+   display:flex;
+   }
+    .dark section#sidebar
+    {
+      -webkit-transition:all 0.5s;
+      -o-transition:all 0.5s;
+      transition:all 0.5s;
+    }
+   .author-meta p span
+   {
+   margin-left:5px;
+   }
+   @media (max-width:1000px)
+   {
+   #toc-wrapper
+   {
+   display:none;
+   }
+   }
+    @media (min-width:1000px)
+        {
+            #feedback
+            {
+                margin-top:2rem;
+            }
+    }
+    /*article widget*/
+
+    #tier-widget
+{
+    
+    color:#000!important;
+  border:1px solid #0565FF;
+    border-top-width:4px;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  position:relative;
+  background:#F4F2ED;
+  padding:1rem;
+  height:100px;
+  width:680px;
+  -webkit-box-pack:justify;
+      -ms-flex-pack:justify;
+          justify-content:space-between;
+  border-radius:20px;
+}
+    
+    .hide
+{
+  display:none!important;
+}
+.strike
+{
+  text-decoration:line-through;
+  color:#111;
+  opacity:0.6;
+}
+    
+.dark #tier-widget
+{
+    background:#222!important;
+    color:#000!important;
+  border:1px solid #0565FF;
+    border-top-width:4px;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  position:relative;
+  background:#F4F2ED;
+  padding:1rem;
+  height:100px;
+  width:680px;
+  -webkit-box-pack:justify;
+      -ms-flex-pack:justify;
+          justify-content:space-between;
+  border-radius:20px;
+}
+    #tier-widget-list
+    {
+        list-style:none!important;
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex;
+        
+  -webkit-box-align:center;
+        
+      -ms-flex-align:center;
+        
+          align-items:center;
+  -webkit-box-pack:center;
+      -ms-flex-pack:center;
+          justify-content:center;
+margin-left:-85px;
+        -webkit-box-flex:1;
+            -ms-flex:1;
+                flex:1;
+        height:100%;
+    }
+    #tier-widget-list i
+{
+  display:inline-block;
+  margin-right:7px;
+  color:#0565FF;
+}
+    
+    #tier-widget-heading p
+    {
+        margin-top:14px;
+    }
+    
+    .dark  #tier-widget-list i
+    {
+        color:#0565FF;
+    }
+
+#tier-widget-list li
+{
+  white-space:nowrap;
+    margin-left:8px;
+
+}
+    #tier-widget-list li:nth-child(1)
+    {
+        margin-left:0px;
+    }
+    @media (max-width:1080px)
+        {
+             #tier-widget , .dark #tier-widget
+            {
+                width:655px;
+            }
+            
+            #tier-widget-list
+            {
+                margin-left:-48px;
+            }
+    }
+    @media (max-width:830px)
+        {
+              #tier-widget , .dark #tier-widget
+            {
+                -webkit-box-orient:vertical;
+                -webkit-box-direction:normal;
+                    -ms-flex-direction:column;
+                        flex-direction:column;
+                width:380px;
+                height:160px;
+            }
+            
+            
+            
+    }
+    
+    @media (max-width:430px)
+        {
+             #tier-widget , .dark #tier-widget
+            {
+                -webkit-box-orient:vertical;
+                -webkit-box-direction:normal;
+                    -ms-flex-direction:column;
+                        flex-direction:column;
+                width:300px;
+                height:160px;
+            }
+            #tier-widget-list
+            {
+                width:100%;
+                margin: 0 auto;
+                margin-left:-10px;
+            }
+             #tier-widget-list li
+            {
+                
+                font-size:12px;
+                display:flex;
+            }
+    }
+    
+    @media (max-width:768px)
+        {
+         section#sidebar
+    {
+        left:-120%;
+    }
+    }
+    
+    div#article
+    {
+        padding-top:0px;
+    }
+    
+   .dark  #article code
+    {
+        background:#444;
+    }
+    
+.dark #article ol li strong:nth-child(1)
+    {
+        color:#0565FF;
+    }
+</style>
+<main class="row">
+   {{>"sidebar"}}
+   <section id="article-wrapper" class="col-xs-12 col-md-8">
+      <div id="article">
+         <div id="meta" class="row">
+            <div class="col-xs-10 offset-xs-1">
+               <p id="breadcrumbs">
+                  <a href="{{fallback meta.home_path "/"}}">
+                  {{i18n "all_categories" "All Categories"}}
+                  </a>
+                  &#8203;>&#8203;
+                  {{> categoryBreadcrumbs linkify=true}}
+                  &#8203;> &#8203;
+                  {{#if category.icon}}
+                  <i class="fa breadcrumb-icon fa-file-text{{#if (hasSuffix category.icon "-o")}}-o{{/if}}"></i>
+                  {{/if}}
+                  {{article.title}}
+               </p>
+            </div>
+         </div>
+         <div id="body" class="row">
+            <div class="col-xs-12">
+               <div class="card">
+                  <div class="card-block">
+                     <h1 class="card-title">{{article.title}} <svg id="download" style="cursor:pointer;" xmlns="http://www.w3.org/2000/svg" version="1.0" width="22.000000pt" height="22.000000pt" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+<path d="M2500 4309 c-29 -12 -67 -46 -83 -74 -9 -15 -13 -322 -17 -1159 l-5 -1139 -277 221 c-290 231 -308 242 -383 228 -65 -12 -125 -85 -125 -150 0 -14 7 -44 16 -66 14 -34 74 -86 429 -370 227 -181 430 -337 451 -346 83 -35 81 -36 553 341 236 189 437 355 446 369 58 88 10 206 -95 237 -70 21 -97 6 -399 -236 -154 -124 -283 -225 -286 -225 -2 0 -6 513 -7 1139 -3 1133 -3 1140 -24 1167 -11 15 -32 37 -46 47 -31 23 -111 32 -148 16z"/>
+<path d="M735 2066 c-37 -17 -70 -52 -84 -89 -7 -18 -11 -158 -11 -391 0 -293 3 -373 15 -421 45 -172 179 -305 352 -350 86 -23 3020 -23 3106 0 178 46 320 193 357 368 7 35 10 181 8 425 -3 356 -4 372 -24 398 -39 53 -71 69 -134 69 -63 0 -95 -16 -134 -69 -20 -26 -21 -43 -26 -406 -5 -363 -6 -380 -26 -406 -11 -15 -33 -37 -48 -48 -27 -21 -28 -21 -1526 -21 -1498 0 -1499 0 -1526 21 -15 11 -37 33 -48 48 -20 26 -21 43 -26 406 -5 363 -6 380 -26 406 -11 15 -32 37 -46 47 -34 25 -113 32 -153 13z"/>
+</g>
+</svg></h1>
+                     <div class="meta-postedBy d-flex">
+                        <div>
+                           <p>Modified : {{article.updated_at_relative }}</p>
+                        </div>
+                        <div class="line"></div>
+                        <div class="author-meta d-flex">
+                           {{#if article.author.profile_image}}
+                           <img class="img-fluid" src="{{article.author.profile_image}}" width="25" height="25" style="border-radius:50%" >
+                           {{/if}}
+                           {{#if article.author.name}}
+                           <p> 
+                              <span class="text-muted">
+                              {{article.author.name}}
+                              </span>
+                           </p>
+                           {{/if}}
+                        </div>
+                     </div>
+                      <div class="art">
+                     {{{article.body}}}
+                      </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section id="meta-article-items" class="col-md-2">
+      <div id="feedback" class="card-block ps-4" data-feed="feedback" data-thanks="{{i18n "got_it" "Got it!"}}">
+      <h3>{{i18n "how_did_we_do" "How did we do?"}}</h3>
+      <div class="btn-group" role='group' aria-label='Feedback'>
+         <button class="feedback-positive btn btn-link" type='button'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
+               <path d="M4.66634 14.6673H2.66634C2.31272 14.6673 1.97358 14.5268 1.72353 14.2768C1.47348 14.0267 1.33301 13.6876 1.33301 13.334V8.66732C1.33301 8.3137 1.47348 7.97456 1.72353 7.72451C1.97358 7.47446 2.31272 7.33398 2.66634 7.33398H4.66634M9.33301 6.00065V3.33398C9.33301 2.80355 9.12229 2.29484 8.74722 1.91977C8.37215 1.5447 7.86344 1.33398 7.33301 1.33398L4.66634 7.33398V14.6673H12.1863C12.5079 14.671 12.8199 14.5583 13.0649 14.35C13.31 14.1417 13.4715 13.8519 13.5197 13.534L14.4397 7.53398C14.4687 7.34289 14.4558 7.14777 14.4019 6.96215C14.348 6.77653 14.2544 6.60485 14.1276 6.45899C14.0008 6.31314 13.8437 6.19661 13.6674 6.11746C13.4911 6.03832 13.2996 5.99846 13.1063 6.00065H9.33301Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Yes
+         </button>
+         <button class="feedback-negative btn btn-link" type='button'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
+               <path d="M10.3334 1.33423H12.1134C12.4907 1.32755 12.8573 1.45965 13.1436 1.70544C13.43 1.95123 13.6161 2.2936 13.6667 2.66756V7.33423C13.6161 7.70819 13.43 8.05056 13.1436 8.29635C12.8573 8.54214 12.4907 8.67423 12.1134 8.66756H10.3334M5.66669 10.0009V12.6676C5.66669 13.198 5.8774 13.7067 6.25247 14.0818C6.62755 14.4568 7.13625 14.6676 7.66669 14.6676L10.3334 8.66756V1.33423H2.81335C2.4918 1.33059 2.17977 1.44329 1.93475 1.65155C1.68973 1.85982 1.52824 2.14962 1.48002 2.46756L0.56002 8.46756C0.531015 8.65865 0.543904 8.85377 0.597794 9.03939C0.651684 9.22501 0.745286 9.3967 0.872115 9.54255C0.998944 9.6884 1.15597 9.80494 1.33231 9.88408C1.50864 9.96322 1.70008 10.0031 1.89335 10.0009H5.66669Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            No
+         </button>
+      </div>
+      </div>
+      <div class="horizontal"></div>
+      <div id="htmlWithToc">
+         {{#if article.show_toc}}
+         <div id="toc-wrapper">
+            <h2>Table of contents</h2>
+            <ul></ul>
+         </div>
+         {{/if}}
+         {{#if @root.meta.related_articles}}
+         <div id="related-article">
+            <h2 class="mb-1">Related articles</h2>
+            <ul>
+               {{#each @root.meta.related_articles}}
+               <li>
+                  <a class="d-flex" href="{{this.relative_url}}">
+                     <div>
+                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                           <path d="M7.95463 0.65332H2.56124C2.20363 0.65332 1.86068 0.795378 1.60781 1.04824C1.35495 1.30111 1.21289 1.64406 1.21289 2.00167V12.7884C1.21289 13.1461 1.35495 13.489 1.60781 13.7419C1.86068 13.9947 2.20363 14.1368 2.56124 14.1368H10.6513C11.0089 14.1368 11.3519 13.9947 11.6047 13.7419C11.8576 13.489 11.9997 13.1461 11.9997 12.7884V4.69836L7.95463 0.65332Z" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M7.95483 0.65332V4.69836H11.9999" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9.3033 8.06836H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M9.3033 10.7656H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                           <path d="M5.25826 5.37305H4.58409H3.90991" stroke="#61656F" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                     </div>
+                     <p>{{this.title}}</p>
+                  </a>
+               </li>
+               {{/each}}
+            </ul>
+         </div>
+         {{/if}}
+      </div>
+   </section>
+</main>
